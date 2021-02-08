@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/application-kristian-semjonov.properties
+/src/main/resources/application-semjonov.properties
