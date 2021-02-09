@@ -57,4 +57,5 @@ public class MedilogController {
         medilogService.weight(userId, dateTime, weight, height, bmi, addInfo);
     }
 
+
 }
