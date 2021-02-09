@@ -61,4 +61,5 @@ public class MedilogRepository {
         paramMap.put("add_info", addInfo);
         jdbcTemplate.update(sql, paramMap);
     }
+
 }
