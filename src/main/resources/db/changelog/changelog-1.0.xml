@@ -4,49 +4,73 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="" author="">
+    <changeSet id="2021-02-09" author="HI">
 
-    <createTable tableName="customer">
-        <column name="id" type="int" autoIncrement="true">
+    <createTable tableName="users">
+        <column name="user_id" type="int" autoIncrement="true">
             <constraints primaryKey="true"/>
         </column>
-        <column name="name" type="text"/>
+        <column name="first_name" type="text"/>
+        <column name="last_name" type="text"/>
+        <column name="id_code" type="numeric(11)">
+            <constraints unique = "true"/>
+        </column>
+        <column name="username" type="varchar">
+            <constraints unique = "true"/>
+        </column>
+        <column name="password" type="varchar"/>
     </createTable>
 
-        <createTable tableName="account">
+        <createTable tableName="blood_pressure">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="customer_id" type="int">
-                <constraints foreignKeyName="fk_account_customer" references = "customer(id)"/>
+            <column name="user_id" type="int">
+                <constraints foreignKeyName="fk_blood_pressure_users" references = "users(user_id)"/>
             </column>
-            <column name="account_nr" type="text">
-                <constraints unique = "true"/>
-            </column>
-            <column name="balance" type="text"/>
+            <column name="date_time" type="timestamp"/>
+            <column name="systolic" type="numeric(3)"/>
+            <column name="diastolic" type="numeric(3)"/>
+            <column name="pulse" type="numeric(3)"/>
+            <column name="add_info" type="text"/>
         </createTable>
 
-        <createTable tableName="transaction">
+        <createTable tableName="blood_sugar">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true"/>
              </column>
-            <column name="date" type="text"/>
-            <column name="sum" type="int"/>
-            <column name="from_account" type="text">
-            <constraints foreignKeyName="fk_account_transaction" references = "account(account_nr)"/>
+            <column name="user_id" type="int">
+                <constraints foreignKeyName="fk_blood_sugar_users" references = "users(user_id)"/>
             </column>
-            <column name="to_account" type="text">
-            </column>
+            <column name="date_time" type="timestamp"/>
+            <column name="blood_sugar" type="numeric(3,1)"/>
+            <column name="add_info" type="text"/>
         </createTable>
-    </changeSet>
 
-    <changeSet id="" author="">
-        <createTable tableName="great_customer">
+        <createTable tableName="weight_bmi">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="user_name" type="text"/>
-            <column name="password" type="varchar"/>
+            <column name="user_id" type="int">
+                <constraints foreignKeyName="fk_weight_users" references = "users(user_id)"/>
+            </column>
+            <column name="date_time" type="timestamp"/>
+            <column name="weight" type="numeric(5,2)"/>
+            <column name="height" type="numeric(3,2)"/>
+            <column name="bmi" type="numeric(3,1)"/>
+            <column name="add_info" type="text"/>
+        </createTable>
+
+        <createTable tableName="body_temp">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="int">
+                <constraints foreignKeyName="fk__body_temp_users" references = "users(user_id)"/>
+            </column>
+            <column name="date_time" type="timestamp"/>
+            <column name="temp" type="numeric(3,1)"/>
+            <column name="add_info" type="text"/>
         </createTable>
     </changeSet>
 
