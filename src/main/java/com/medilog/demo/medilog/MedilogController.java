@@ -60,7 +60,7 @@ public class MedilogController {
     // http://localhost:8080/medilog/temperature?userId=1&datetime=2021-02-04T16:20&temp=37,6&addinfo=test
     @PostMapping("temperature")
     public void bodyTemp(@RequestParam("userid") String userId,
-                         RequestParam("datetime") LocalDateTime dateTime,
+                         @RequestParam("datetime") LocalDateTime dateTime,
                          @RequestParam("temp") BigDecimal temp,
                          @RequestParam("addinfo") String addInfo) {
         medilogService.bodyTemp(userId, dateTime, temp, addInfo);
