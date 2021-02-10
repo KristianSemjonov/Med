@@ -39,7 +39,7 @@ public class MedilogRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void bloodSugar(String userId, LocalDateTime dateTime, BigDecimal bloodSugar, String addInfo) {
+    public void bloodSugar(int userId, LocalDateTime dateTime, BigDecimal bloodSugar, String addInfo) {
         String sql = "INSERT INTO blood_sugar (user_id, date_time, blood_sugar, add_info) " +
                 "VALUES (:userId, :dateTime, :bloodSugar, :addInfo)";
         Map<String, Object> paramMap = new HashMap();

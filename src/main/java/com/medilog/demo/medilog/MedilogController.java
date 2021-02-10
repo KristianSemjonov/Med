@@ -37,9 +37,9 @@ public class MedilogController {
         medilogService.bloodPressure(userId, dateTime, systolic, diastolic, pulse, addInfo);
     }
 
-    // http://localhost:8080/medilog/bloodsugar?userId=1&datetime=2021-02-04T16:20&bloodsugar=5,6&addinfo=test
+    // http://localhost:8080/medilog/bloodsugar?userid=1&datetime=2021-02-04T16:20&bloodsugar=5,6&addinfo=test
     @PostMapping("bloodsugar")
-    public void bloodPressure(@RequestParam("userid") String userId,
+    public void bloodPressure(@RequestParam("userid") int userId,
                               @RequestParam("datetime") LocalDateTime dateTime,
                               @RequestParam("bloodsugar") BigDecimal bloodSugar,
                               @RequestParam("addinfo") String addInfo) {
