@@ -2,81 +2,103 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Kasutajad</title>
+    <title>Medilog</title>
 </head>
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kasutajad</label><br>
-    <label>Eesnimi</label><br>
-    <input type="text" name="" value=""><br>
-    <label>Perekonnanimi</label><br>
-    <input type="text" name="" value=""><br>
-    <label>Isikukood</label><br>
-    <input type="numeric(11)" name="" value=""><br>
-</form>
-</body>
 
 <body>
-<form class="Vererõhk" action="index.html" method="post">
-    <label>Vererõhk</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Süstoolne vererõhk (mm/Hg)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Diastoolne vererõhk (mm/Hg)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Pulss (lööki/min)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
+    <form class="" action="index.html" method="post">
+        <h2>Uue kasutaja loomine</h2><br>
+        <label>Eesnimi</label>
+        <input type="text" name="" value=""><br>
+        <label>Perekonnanimi</label><br>
+        <input type="text" name="" value=""><br>
+        <label>Isikukood</label><br>
+        <input type="numeric(11)" name="" value=""><br>
+
+    </form>
+
+    <form class="" action="index.html" method="post">
+        <h2>Vererõhk</h2><br>
+        <label>Kuupäev</label>
+        <input id="bloodpressureDate" type="date" name="" value=""><br>
+        <label>Kellaaeg*</label>
+        <input id="bloodpressureTime" type="time" name="" value=""><br>
+        <label>Süstoolne vererõhk (mm/Hg)*</label>
+        <input id="systolic" type="numeric (3)" name="" value=""><br>
+        <label>Diastoolne vererõhk (mm/Hg)*</label>
+        <input id="diastolic" type="numeric (3)" name="" value=""><br>
+        <label>Pulss (lööki/min)</label>
+        <input id="pulse" type="numeric (3)" name="" value=""><br>
+        <label>Lisainfo</label>
+        <input id="addInfo" type="text" name="" value=""><br>
+
+    </form>
+
+    <form class="" action="index.html" method="post">
+        <h2>Veresuhkur</h2><br>
+        <label>Kuupäev</label>
+        <input id="bloodsugarDate" type="date" name="" value=""><br>
+        <label>Kellaaeg*</label>
+        <input id="bloodsugarTime" type="time" name="" value=""><br>
+        <label>Veresuhkur (mmol/l)</label>
+        <input id="bloodSugar" type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+
+    </form>
+
+    <form class="" action="index.html" method="post">
+        <h2>Kehakaal ja KMI</h2><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Kehakaal (kg)</label>
+        <input type="numeric(5,2)" name="" value=""><br>
+        <label>Pikkus (cm)</label>
+        <input type="numeric(3,2)" name="" value=""><br>
+        <label>KMI (kg/m2)</label>
+        <input type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+
+    </form>
+
+    <form class="" action="index.html" method="post">
+        <h2>Kehatemperatuur</h2><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Kehatemperatuur (°C)</label>
+        <input type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+
+    </form>
 </body>
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Veresuhkur</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Veresuhkur (mmol/l)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+<script>
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let idCode = document.getElementById("idCode");
+    let username = document.getElementById("username");
+    let password = document.getElementById("password");
+    let saveUserButton = document.getElementById("saveUserButton")
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kehakaal ja KMI</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Kehakaal (kg)</label>
-    <input type="numeric(5,2)" name="" value=""><br>
-    <label>Pikkus (cm)</label>
-    <input type="numeric(3,2)" name="" value=""><br>
-    <label>KMI (kg/m2)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+    // http://localhost:8081/medilog/createuser?firstname=Mari&lastname=Maasikas&idcode=11111111111&username=mammu&password=Mammu555
+    function newUser() {
+        fetch('/medilog/createuser?firstname=' + firstName.value + '&lastname=' + lastName.value
+            + '&idcode=' + idCode.value + '&username=' + username.value + '&password=' + password.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Uus kasutaja on loodud!")
+            })
+    }
+    saveUserButton.onclick = newUser;
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kehatemperatuur</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Kehatemperatuur (°C)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+</script>
 </html>
