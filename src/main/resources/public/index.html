@@ -2,81 +2,86 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Kasutajad</title>
+    <title>Medilog</title>
 </head>
 <body>
-<form class="" action="index.html" method="post">
-    <label>Kasutajad</label><br>
-    <label>Eesnimi</label><br>
-    <input type="text" name="" value=""><br>
-    <label>Perekonnanimi</label><br>
-    <input type="text" name="" value=""><br>
-    <label>Isikukood</label><br>
-    <input type="numeric(11)" name="" value=""><br>
-</form>
-</body>
+<h2>Uue kasutaja loomine</h2>
+    <form class="Kasutaja" action="index.html" method="post"><br>
+        <label>Eesnimi</label>
+        <input id="firstName" type="text" name=""/><br>
+        <label>Perekonnanimi</label>
+        <input id="lastName" type="text" name=""><br>
+        <label>Isikukood</label>
+        <input id="idCode" type="numeric(11)" name=""><br>
+        <label>Kasutajanimi</label>
+        <input id="username" type="text" name=""/><br>
+        <label>Salasõna</label>
+        <input id="password" type="password" name=""><br>
+        <button id="saveUserButton" type="button" name="">Salvesta andmed</button>
+    </form>
 
-<body>
-<form class="Vererõhk" action="index.html" method="post">
-    <label>Vererõhk</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Süstoolne vererõhk (mm/Hg)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Diastoolne vererõhk (mm/Hg)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Pulss (lööki/min)</label>
-    <input type="numeric (3)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+    <form class="Vererõhk" action="index.html" method="post"><br>
+        <label>Vererõhk</label><br>
+        <label>Kuupäev</label><br>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label><br>
+        <input type="time" name="" value=""><br>
+        <label>Süstoolne vererõhk (mm/Hg)</label><br>
+        <input type="numeric (3)" name="" value=""><br>
+        <label>Diastoolne vererõhk (mm/Hg)</label><br>
+        <input type="numeric (3)" name="" value=""><br>
+        <label>Pulss (lööki/min)</label><br>
+        <input type="numeric (3)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+        <button id="saveBloodPressure" type="button" name="">Salvesta näidud</button>
+    </form>
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Veresuhkur</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Veresuhkur (mmol/l)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+    <form class="" action="index.html" method="post">
+        <label>Veresuhkur</label><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Veresuhkur (mmol/l)</label>
+        <input type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+        <button id="saveBloodSugar" type="button" name="">Salvesta näidud</button>
+    </form>
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kehakaal ja KMI</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Kehakaal (kg)</label>
-    <input type="numeric(5,2)" name="" value=""><br>
-    <label>Pikkus (cm)</label>
-    <input type="numeric(3,2)" name="" value=""><br>
-    <label>KMI (kg/m2)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kehatemperatuur</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Kehatemperatuur (°C)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
+    <form class="" action="index.html" method="post">
+        <label>Kehakaal ja KMI</label><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Kehakaal (kg)</label>
+        <input type="numeric(5,2)" name="" value=""><br>
+        <label>Pikkus (cm)</label>
+        <input type="numeric(3,2)" name="" value=""><br>
+        <label>KMI (kg/m2)</label>
+        <input type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+        <button id="saveWeight" type="button" name="">Salvesta näidud</button>
+    </form>
+
+    <form class="" action="index.html" method="post">
+        <label>Kehatemperatuur</label><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Kehatemperatuur (°C)</label>
+        <input type="numeric(3,1)" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input type="text" name="" value=""><br>
+        <button id="saveTemperature" type="button" name="">Salvesta näidud</button>
+    </form>
 </body>
+<script>
+</script>
 </html>
+
