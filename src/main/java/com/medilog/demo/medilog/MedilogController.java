@@ -26,7 +26,7 @@ public class MedilogController {
         medilogService.createUser(firstName, lastName, idCode, username, password);
     }
 
-    // http://localhost:8080/medilog/bloodpressure?userId=1&datetime=2021-02-04T16:20:40&systolic=141&diastolic=80&pulse=72&addInfo=-
+    // http://localhost:8080/medilog/bloodpressure?userId=1&datetime=2021-02-04T16:20:40&systolic=141&diastolic=80&pulse=72&addInfo=test
     @PostMapping("bloodpressure")
     public void bloodPressure(@RequestParam("userid") String userId,
                               @RequestParam("datetime") LocalDateTime dateTime,
@@ -37,7 +37,7 @@ public class MedilogController {
         medilogService.bloodPressure(userId, dateTime, systolic, diastolic, pulse, addInfo);
     }
 
-    // http://localhost:8080/medilog/bloodsugar?userId=1&datetime=2021-02-04T16:20&bloodsugar=5,6&addinfo=-
+    // http://localhost:8080/medilog/bloodsugar?userId=1&datetime=2021-02-04T16:20&bloodsugar=5,6&addinfo=test
     @PostMapping("bloodsugar")
     public void bloodPressure(@RequestParam("userid") String userId,
                               @RequestParam("datetime") LocalDateTime dateTime,
@@ -46,7 +46,7 @@ public class MedilogController {
         medilogService.bloodSugar(userId, dateTime, bloodSugar, addInfo);
     }
 
-    // http://localhost:8080/medilog/weight?userId=1&datetime=2021-02-04T16:20&weight=76&height=180&bmi=23,5&addinfo=-
+    // http://localhost:8080/medilog/weight?userId=1&datetime=2021-02-04T16:20&weight=76&height=180&bmi=23,5&addinfo=test
     @PostMapping("weight")
     public void bloodPressure(@RequestParam("userid") String userId,
                               @RequestParam("datetime") LocalDateTime dateTime,
@@ -57,5 +57,13 @@ public class MedilogController {
         medilogService.weight(userId, dateTime, weight, height, bmi, addInfo);
     }
 
+    // http://localhost:8080/medilog/temperature?userId=1&datetime=2021-02-04T16:20&temp=37,6&addinfo=test
+    @PostMapping("temperature")
+    public void bodyTemp(@RequestParam("userid") String userId,
+                         RequestParam("datetime") LocalDateTime dateTime,
+                         @RequestParam("temp") BigDecimal temp,
+                         @RequestParam("addinfo") String addInfo) {
+        medilogService.bodyTemp(userId, dateTime, temp, addInfo);
+    }
 
 }

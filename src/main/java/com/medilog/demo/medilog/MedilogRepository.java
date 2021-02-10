@@ -62,4 +62,14 @@ public class MedilogRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
+    public void bodyTemp(String userId, LocalDateTime dateTime, BigDecimal temp, String addInfo) {
+        String sql = "INSERT INTO body_temp (user_id, date_time, temp, add_info) VALUES (:userId, :dateTime, :temp, :addInfo)";
+        Map<String, Object> paramMap = new HashMap();
+        paramMap.put("userid", userId);
+        paramMap.put("datetime", dateTime);
+        paramMap.put("temp", temp);
+        paramMap.put("add_info", addInfo);
+        jdbcTemplate.update(sql, paramMap);
+    }
+
 }

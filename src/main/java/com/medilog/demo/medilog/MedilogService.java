@@ -30,4 +30,9 @@ public class MedilogService {
         bmi = (weight.divide(height.multiply(height)));
         medilogRepository.weight(userId, dateTime, weight, height, bmi, addInfo);
     }
+
+    public void bodyTemp(String userId, LocalDateTime dateTime, BigDecimal temp, String addInfo) {
+        medilogRepository.bodyTemp(userId, dateTime, temp, addInfo);
+    }
+
 }
