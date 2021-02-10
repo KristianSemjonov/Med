@@ -5,7 +5,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,34 +29,38 @@ public class MedilogRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void bloodPressure(int userId, LocalDateTime dateTime, int systolic, int diastolic, int pulse, String addInfo) {
-        String sql = "INSERT INTO blood_pressure (user_id, date_time, systolic, diastolic, pulse, add_info) " +
-                "VALUES (:userId, :dateTime, : systolic, :diastolic, :pulse, :addInfo)";
+    public void bloodPressure(int userId, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
+        String sql = "INSERT INTO blood_pressure (user_id, date, time, systolic, diastolic, pulse, add_info) " +
+                "VALUES (:userId, :date, :time, :systolic, :diastolic, :pulse, :addInfo)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("userId", userId);
-        paramMap.put("dateTime", dateTime);
+        paramMap.put("date", date);
+        paramMap.put("time", time);
         paramMap.put("systolic", systolic);
         paramMap.put("diastolic", diastolic);
+        paramMap.put("pulse", pulse);
         paramMap.put("addInfo", addInfo);
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void bloodSugar(int userId, LocalDateTime dateTime, BigDecimal bloodSugar, String addInfo) {
-        String sql = "INSERT INTO blood_sugar (user_id, date_time, blood_sugar, add_info) " +
-                "VALUES (:userId, :dateTime, :bloodSugar, :addInfo)";
+    public void bloodSugar(int userId, LocalDate date, LocalTime time, BigDecimal bloodSugar, String addInfo) {
+        String sql = "INSERT INTO blood_sugar (user_id, date, time, blood_sugar, add_info) " +
+                "VALUES (:userId, :date, :time, :bloodSugar, :addInfo)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("userId", userId);
-        paramMap.put("dateTime", dateTime);
+        paramMap.put("date", date);
+        paramMap.put("time", time);
         paramMap.put("bloodSugar", bloodSugar);
         paramMap.put("addInfo", addInfo);
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void weight(int userId, LocalDateTime dateTime, BigDecimal weight, BigDecimal height, BigDecimal bmi, String addInfo) {
-        String sql = "INSERT INTO weight_bmi (user_id, date_time, weight, height, bmi, add_info) VALUES (:userId, :dateTime, :weight, :height, :bmi, :addInfo)";
+    public void weight(int userId, LocalDate date, LocalTime time, BigDecimal weight, BigDecimal height, BigDecimal bmi, String addInfo) {
+        String sql = "INSERT INTO weight_bmi (user_id, date, time, weight, height, bmi, add_info) VALUES (:userId, :date, :time, :weight, :height, :bmi, :addInfo)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("userId", userId);
-        paramMap.put("dateTime", dateTime);
+        paramMap.put("date", date);
+        paramMap.put("time", time);
         paramMap.put("weight", weight);
         paramMap.put("height", height);
         paramMap.put("bmi", bmi);
@@ -62,11 +68,12 @@ public class MedilogRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
-    public void bodyTemp(int userId, LocalDateTime dateTime, BigDecimal temp, String addInfo) {
-        String sql = "INSERT INTO body_temp (user_id, date_time, temp, add_info) VALUES (:userId, :dateTime, :temp, :addInfo)";
+    public void bodyTemp(int userId, LocalDate date, LocalTime time, BigDecimal temp, String addInfo) {
+        String sql = "INSERT INTO body_temp (user_id, date, time, temp, add_info) VALUES (:userId, :date, :time, :temp, :addInfo)";
         Map<String, Object> paramMap = new HashMap();
         paramMap.put("userId", userId);
-        paramMap.put("dateTime", dateTime);
+        paramMap.put("date", date);
+        paramMap.put("time", time);
         paramMap.put("temp", temp);
         paramMap.put("addInfo", addInfo);
         jdbcTemplate.update(sql, paramMap);

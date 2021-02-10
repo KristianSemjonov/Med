@@ -28,7 +28,8 @@
             <column name="user_id" type="int">
                 <constraints foreignKeyName="fk_blood_pressure_users" references = "users(user_id)"/>
             </column>
-            <column name="date_time" type="timestamp"/>
+            <column name="date" type="date"/>
+            <column name="time" type="time"/>
             <column name="systolic" type="numeric(3)"/>
             <column name="diastolic" type="numeric(3)"/>
             <column name="pulse" type="numeric(3)"/>
@@ -42,7 +43,8 @@
             <column name="user_id" type="int">
                 <constraints foreignKeyName="fk_blood_sugar_users" references = "users(user_id)"/>
             </column>
-            <column name="date_time" type="timestamp"/>
+            <column name="date" type="date"/>
+            <column name="time" type="time"/>
             <column name="blood_sugar" type="numeric(3,1)"/>
             <column name="add_info" type="text"/>
         </createTable>
@@ -54,7 +56,8 @@
             <column name="user_id" type="int">
                 <constraints foreignKeyName="fk_weight_users" references = "users(user_id)"/>
             </column>
-            <column name="date_time" type="timestamp"/>
+            <column name="date" type="date"/>
+            <column name="time" type="time"/>
             <column name="weight" type="numeric(5,2)"/>
             <column name="height" type="numeric(3,2)"/>
             <column name="bmi" type="numeric(3,1)"/>
@@ -68,7 +71,8 @@
             <column name="user_id" type="int">
                 <constraints foreignKeyName="fk__body_temp_users" references = "users(user_id)"/>
             </column>
-            <column name="date_time" type="timestamp"/>
+            <column name="date" type="date"/>
+            <column name="time" type="time"/>
             <column name="temp" type="numeric(3,1)"/>
             <column name="add_info" type="text"/>
         </createTable>
