@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -29,7 +30,7 @@ public class MedilogService {
     }
 
     public void weight(int userId, LocalDate date, LocalTime time, BigDecimal weight, BigDecimal height, BigDecimal bmi, String addInfo) {
-        bmi = (weight.divide(height.multiply(height)));
+        bmi = (weight.divide(height.multiply(height), RoundingMode.HALF_UP));
         medilogRepository.weight(userId, date, time, weight, height, bmi, addInfo);
     }
 
