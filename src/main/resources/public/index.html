@@ -9,7 +9,7 @@
 
 <body>
 
-    <form class="Kasutaja" action="index.html" method="post"><br>
+    <form class="createUser" action="index.html" method="post"><br>
         <h2>Uue kasutaja loomine</h2>
         <label>Eesnimi</label>
         <input id="firstName" type="text" name=""/><br>
@@ -24,11 +24,13 @@
         <button id="saveUserButton" type="button" name="">Salvesta andmed</button>
     </form>
 
-    <form class="" action="index.html" method="post">
+    <form class="bloodPressure" action="index.html" method="post">
         <h2>Vererõhu mõõtmistulemused</h2><br>
+        <label>Kasutaja ID</label>
+        <input id="idBloodPressure" type="date" name="" value=""><br>
         <label>Kuupäev</label>
         <input id="bloodpressureDate" type="date" name="" value=""><br>
-        <label>Kellaaeg*</label>
+        <label>Kellaaeg</label>
         <input id="bloodpressureTime" type="time" name="" value=""><br>
         <label>Süstoolne vererõhk (mm/Hg)*</label>
         <input id="systolic" type="number" name="" value=""><br>
@@ -38,25 +40,29 @@
         <input id="pulse" type="number" name="" value=""><br>
         <label>Lisainfo</label>
         <input id="addInfoBloodPressure" type="text" name="" value=""><br>
-        <button id="saveBloodPressure" type="button" name="">Salvesta andmed</button>
+        <button id="saveBloodPressureButton" type="button" name="">Salvesta andmed</button>
     </form>
 
-    <form class="" action="index.html" method="post">
+    <form class="bloodSugar" action="index.html" method="post">
         <h2>Veresuhkuru mõõtmistulemused</h2><br>
+        <label>Kasutaja ID</label>
+        <input id="idBloodSugar" type="date" name="" value=""><br>
         <label>Kuupäev</label>
         <input id="bloodsugarDate" type="date" name="" value=""><br>
         <label>Kellaaeg*</label>
         <input id="bloodsugarTime" type="time" name="" value=""><br>
         <label>Veresuhkur (mmol/l)</label>
         <input id="bloodSugar" type="number" name="" value=""><br>
-        <label>Lisainfo*</label>
+        <label>Lisainfo</label>
         <input id="addInfoBloodSugar" type="text" name="" value=""><br>
-        <button id="saveBloodSugar" type="button" name="">Salvesta andmed</button>
+        <button id="saveBloodSugarButton" type="button" name="">Salvesta andmed</button>
     </form>
 
 
-    <form class="" action="index.html" method="post">
+    <form class="weight" action="index.html" method="post">
         <h2>Kehakaal ja KMI</h2><br>
+        <label>Kasutaja ID</label>
+        <input id="idWeight" type="date" name="" value=""><br>
         <label>Kuupäev</label>
         <input type="date" name="" value=""><br>
         <label>Kellaaeg</label>
@@ -67,23 +73,25 @@
         <input type="number" name="" value=""><br>
         <label>KMI (kg/m2)</label>
         <input type="number" name="" value=""><br>
-        <label>Lisainfo*</label>
+        <label>Lisainfo</label>
         <input id="addInfoWeight" type="text" name="" value=""><br>
-        <button id="saveWeight" type="button" name="">Salvesta andmed</button>
+        <button id="saveWeightButton" type="button" name="">Salvesta andmed</button>
     </form>
 
 
     <form class="" action="index.html" method="post">
         <h2>Kehatemperatuur</h2><br>
+        <label>Kasutaja ID</label>
+        <input id="idTemp" type="date" name="" value=""><br>
         <label>Kuupäev</label>
         <input id="tempDate"  type="date" name="" value=""><br>
         <label>Kellaaeg</label>
         <input id="tempTime" type="time" name="" value=""><br>
         <label>Kehatemperatuur (°C)</label>
-        <input id="temp" type="numeric" name="" value=""><br>
-        <label>Lisainfo*</label>
+        <input id="temp" type="number" name="" value=""><br>
+        <label>Lisainfo</label>
         <input id="addInfoTemp" type="text" name="" value=""><br>
-        <button id="saveTemp" type="button" name="">Salvesta andmed</button>
+        <button id="saveTempButton" type="button" name="">Salvesta andmed</button>
     </form>
 </body>
 
@@ -108,6 +116,30 @@
             })
     }
     saveUserButton.onclick = newUser;
+
+
+    let idBloodPressure = document.getElementById("idBloodPressure");
+    let bloodpressureDate = document.getElementById("bloodpressureDate");
+    let bloodpressureTime = document.getElementById("bloodpressureTime");
+    let systolic = document.getElementById("systolic");
+    let diastolic = document.getElementById("diastolic");
+    let pulse = document.getElementById("pulse");
+    let addInfoBloodPressure = document.getElementById("addInfoBloodPressure");
+    let saveBloodPressureButton = document.getElementById("saveBloodPressureButton")
+
+    // http://localhost:8081/medilog/bloodpressure?userid=1&date=2021-02-04&time=16:20&systolic=141&diastolic=80&pulse=72&addinfo=test
+    function addBloodPressure() {
+        fetch('/medilog/bloodpressure?userid=' + idBloodPressure.value + '&date=' + bloodpressureDate.value + '&time=' + bloodpressureTime.value + '&systolic=' + systolic.value
+            + '&diastolic=' + diastolic.value + '&pulse=' + pulse.value + '&addinfo=' + addInfoBloodPressure.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Andmed on sisestatud")
+            })
+    }
+    saveBloodPressureButton.onclick = addBloodPressure;
 
 
 
