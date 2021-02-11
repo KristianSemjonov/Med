@@ -2,97 +2,25 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Medilog</title>
+    <title>Medilog homepage</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
 </head>
 
 <body>
-
-<form class="createUser" action="index.html" method="post"><br>
-    <h2>Uue kasutaja loomine</h2>
-    <label>Eesnimi</label>
-    <input id="firstName" type="text" name=""/><br>
-    <label>Perekonnanimi</label>
-    <input id="lastName" type="text" name=""><br>
-    <label>Isikukood</label>
-    <input id="idCode" type="number" name=""><br>
-    <label>Kasutajanimi</label>
-    <input id="username" type="text" name=""/><br>
-    <label>Salasõna</label>
-    <input id="password" type="password" name=""><br>
-    <button id="saveUserButton" type="button" name="">Salvesta andmed</button><br>
-</form>
-
-<form class="bloodPressure" action="index.html" method="post">
-    <h2>Vererõhu mõõtmistulemused</h2><br>
-    <label>Kasutaja ID</label>
-    <input id="idBloodPressure" type="number" name="" value=""><br>
-    <label>Kuupäev</label>
-    <input id="bloodPressureDate" type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input id="bloodPressureTime" type="time" name="" value=""><br>
-    <label>Süstoolne vererõhk (mm/Hg)</label>
-    <input id="systolic" type="number" name="" value=""><br>
-    <label>Diastoolne vererõhk (mm/Hg)</label>
-    <input id="diastolic" type="number" name="" value=""><br>
-    <label>Pulss (lööki/min)</label>
-    <input id="pulse" type="number" name="" value=""><br>
-    <label>Lisainfo</label>
-    <input id="addInfoBloodPressure" type="text" name="" value=""><br>
-    <button id="saveBloodPressureButton" type="button" name="">Salvesta andmed</button><br>
-</form>
-
-<form class="bloodSugar" action="index.html" method="post">
-    <h2>Veresuhkru mõõtmistulemused</h2><br>
-    <label>Kasutaja ID</label>
-    <input id="idBloodSugar" type="number" name="" value=""><br>
-    <label>Kuupäev</label>
-    <input id="bloodSugarDate" type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input id="bloodSugarTime" type="time" name="" value=""><br>
-    <label>Veresuhkur (mmol/l)</label>
-    <input id="bloodSugar" type="number" name="" value=""><br>
-    <label>Lisainfo</label>
-    <input id="addInfoBloodSugar" type="text" name="" value=""><br>
-    <button id="saveBloodSugarButton" type="button" name="">Salvesta andmed</button><br>
-</form>
-
-
-<form class="weight" action="index.html" method="post">
-    <h2>Kehakaal ja KMI</h2><br>
-    <label>Kasutaja ID</label>
-    <input id="idWeight" type="number" name="" value=""><br>
-    <label>Kuupäev</label>
-    <input id="weightDate" type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input id="weightTime" type="time" name="" value=""><br>
-    <label>Kehakaal (kg)</label>
-    <input id="weight" type="number" name="" value=""><br>
-    <label>Pikkus (cm)</label>
-    <input id="height" type="number" name="" value=""><br>
-    <label>KMI (kg/m2)</label>
-    <input id="bmi" type="number" name="" value=""><br>
-    <label>Lisainfo</label>
-    <input id="addInfoWeight" type="text" name="" value=""><br>
-    <button id="saveWeightButton" type="button" name="">Salvesta andmed</button><br>
-</form>
-
-
-<form class="temperature" action="index.html" method="post">
-    <h2>Kehatemperatuur</h2><br>
-    <label>Kasutaja ID</label>
-    <input id="idTemp" type="number" name="" value=""><br>
-    <label>Kuupäev</label>
-    <input id="tempDate" type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input id="tempTime" type="time" name="" value=""><br>
-    <label>Kehatemperatuur (°C)</label>
-    <input id="temp" type="number" name="" value=""><br>
-    <label>Lisainfo</label>
-    <input id="addInfoTemp" type="text" name="" value=""><br>
-    <button id="saveTempButton" type="button" name="">Salvesta andmed</button>
-</form>
+    <form class="createUser" action="index.html" method="post"><br>
+        <h2>Uue kasutaja loomine</h2>
+        <label>Eesnimi</label>
+        <input id="firstName" type="text" name=""/><br>
+        <label>Perekonnanimi</label>
+        <input id="lastName" type="text" name=""><br>
+        <label>Isikukood</label>
+        <input id="idCode" type="number" name=""><br>
+        <label>Kasutajanimi</label>
+        <input id="username" type="text" name=""/><br>
+        <label>Salasõna</label>
+        <input id="password" type="password" name=""><br>
+        <button id="saveUserButton" type="button" name="">Salvesta andmed</button><br>
+    </form>
 </body>
 
 <script>
@@ -115,94 +43,5 @@
             })
     }
     saveUserButton.onclick = addNewUser;
-
-
-    let idBloodPressure = document.getElementById("idBloodPressure");
-    let bloodPressureDate = document.getElementById("bloodPressureDate");
-    let bloodPressureTime = document.getElementById("bloodPressureTime");
-    let systolic = document.getElementById("systolic");
-    let diastolic = document.getElementById("diastolic");
-    let pulse = document.getElementById("pulse");
-    let addInfoBloodPressure = document.getElementById("addInfoBloodPressure");
-    let saveBloodPressureButton = document.getElementById("saveBloodPressureButton");
-    // http://localhost:8081/medilog/bloodpressure?userid=1&date=2021-02-04&time=16:20&systolic=141&diastolic=80&pulse=72&addinfo=test
-    function addBloodPressure() {
-        fetch('/medilog/bloodpressure?userid=' + idBloodPressure.value + '&date=' + bloodPressureDate.value + '&time=' + bloodPressureTime.value + '&systolic=' + systolic.value
-            + '&diastolic=' + diastolic.value + '&pulse=' + pulse.value + '&addinfo=' + addInfoBloodPressure.value,
-            {
-                method: 'POST'
-            })
-            .then(result => result.text())
-            .then(function (result) {
-                alert("Andmed on sisestatud")
-            })
-    }
-    saveBloodPressureButton.onclick = addBloodPressure;
-
-
-    let idBloodSugar = document.getElementById("idBloodSugar");
-    let bloodSugarDate = document.getElementById("bloodSugarDate");
-    let bloodSugarTime = document.getElementById("bloodSugarTime");
-    let bloodSugar = document.getElementById("bloodSugar");
-    let addInfoBloodSugar = document.getElementById("addInfoBloodSugar");
-    let saveBloodSugarButton = document.getElementById("saveBloodSugarButton");
-    // http://localhost:8081/medilog/bloodsugar?userid=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addinfo=test
-    function addBloodSugar() {
-        fetch('/medilog/bloodsugar?userid=' + idBloodSugar.value + '&date=' + bloodSugarDate.value + '&time=' + bloodSugarTime.value + '&bloodsugar=' + bloodSugar.value + '&addinfo=' + addInfoBloodSugar.value,
-            {
-                method: 'POST'
-            })
-            .then(result => result.text())
-            .then(function (result) {
-                alert("Andmed on sisestatud")
-            })
-    }
-    saveBloodSugarButton.onclick = addBloodSugar;
-
-
-
-    let idWeight = document.getElementById("idWeight");
-    let weightDate = document.getElementById("weightDate");
-    let weightTime = document.getElementById("weightTime");
-    let weight = document.getElementById("weight");
-    let height = document.getElementById("height");
-    let bmi = document.getElementById("bmi");
-    let addInfoWeight = document.getElementById("addInfoWeight");
-    let saveWeightButton = document.getElementById("saveWeightButton")
-    // http://localhost:8081/medilog/weight?userid=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addinfo=test
-    function addWeight() {
-        fetch('/medilog/weight?userid=' + idWeight.value + '&date=' + weightDate.value + '&time=' + weightTime.value +
-            '&weight=' + weight.value + '&height=' + height.value + '&bmi=' + bmi.value + '&addinfo=' + addInfoWeight.value,
-            {
-                method: 'POST'
-            })
-            .then(result => result.text())
-            .then(function (result) {
-                alert("Andmed on salvestatud")
-            })
-    }
-    saveWeightButton.onclick = addWeight;
-
-
-    let idTemp = document.getElementById("idTemp");
-    let tempDate = document.getElementById("tempDate");
-    let tempTime = document.getElementById("tempTime");
-    let temp = document.getElementById("temp");
-    let addInfoTemp = document.getElementById("addInfoTemp");
-    let saveTempButton = document.getElementById("saveTempButton");
-    // http://localhost:8081/medilog/temperature?userid=1&date=2021-02-04&time=16:20&temp=37.6&addinfo=test
-    function addTemperature() {
-        fetch('/medilog/temperature?userid=' + idTemp.value + '&date=' + tempDate.value + '&time=' + tempTime.value
-            + '&temp=' + temp.value + '&addinfo=' + addInfoTemp.value,
-            {
-                method: 'POST'
-            })
-            .then(result => result.text())
-            .then(function (result) {
-                alert("Temperatuur " + result + " on lisatud")
-            })
-    }
-    saveTempButton.onclick = addTemperature;
-
 </script>
 </html>

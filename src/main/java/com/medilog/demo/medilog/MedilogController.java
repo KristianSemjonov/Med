@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @RequestMapping("medilog")
 @RestController
@@ -67,6 +68,30 @@ public class MedilogController {
                          @RequestParam("temp") BigDecimal temp,
                          @RequestParam("addinfo") String addInfo) {
         medilogService.bodyTemp(userId, date, time, temp, addInfo);
+    }
+
+    // http://localhost:8081/medilog/diarybloodpressure?userid=1
+    @GetMapping("diarybloodpressure")
+    public List<BloodPressureDiary> diaryBloodPressure(@RequestParam ("userid") int userId) {
+        return medilogService.diaryBloodPressure(userId);
+    }
+
+    // http://localhost:8081/medilog/diarybloodsugar?userid=1
+    @GetMapping("diarybloodsugar")
+    public List<BloodPressureDiary> diaryBloodSugar(@RequestParam ("userid") int userId) {
+        return medilogService.diaryBloodSugar(userId);
+    }
+
+    // http://localhost:8081/medilog/diaryweight?userid=1
+    @GetMapping("diaryweight")
+    public List<BloodPressureDiary> diaryWeight(@RequestParam ("userid") int userId) {
+        return medilogService.diaryWeight(userId);
+    }
+
+    // http://localhost:8081/medilog/diarytemperature?userid=1
+    @GetMapping("diarytemperature")
+    public List<BloodPressureDiary> diaryTemperature(@RequestParam ("userid") int userId) {
+        return medilogService.diaryTemperature(userId);
     }
 
 }
