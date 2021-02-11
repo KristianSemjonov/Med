@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Medilog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -117,6 +119,24 @@
     }
     saveUserButton.onclick = newUser;
 
+    // http://localhost:8081/medilog/bloodsugar?userid=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addinfo=test
+    let bloodSugarDate = document.getElementById("bloodSugarDate");
+    let bloodSugarTime = document.getElementById("bloodSugarTime");
+    let bloodSugar = document.getElementById("bloodSugar");
+    let idBloodSugar = document.getElementById("idBloodSugar");
+    let addInfoBloodSugarButton = document.getElementById("addInfoBloodSugarButton");
+
+    function addBloodPressure() {
+        fetch('/medilog/bloodsugar?userid=' + idBloodSugar.value + '&date=' + bloodSugarDate.value + '&time=' + bloodSugarTime.value + '&bloodsugar=' +  bloodSugar.value + '&addinfo=' + addInfoBloodSugar.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Andmed on sisestatud")
+            })
+    }
+    addInfoBloodSugarButton.onclick = addBloodPressure;
 
     let idBloodPressure = document.getElementById("idBloodPressure");
     let bloodpressureDate = document.getElementById("bloodpressureDate");
@@ -169,4 +189,3 @@ saveWeightButton.onclick = addWeight;
 
 </script>
 </html>
-
