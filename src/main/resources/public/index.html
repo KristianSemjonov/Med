@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns="">
 <head>
     <meta charset="utf-8">
     <title>Medilog</title>
@@ -56,15 +56,15 @@
     <form class="" action="index.html" method="post">
         <h2>Kehakaal ja KMI</h2><br>
         <label>Kuupäev</label>
-        <input type="date" name="" value=""><br>
+        <input id= "weightDate" type="date" name="" value=""><br>
         <label>Kellaaeg</label>
-        <input type="time" name="" value=""><br>
+        <input id= "weightTime" type="time" name="" value=""><br>
         <label>Kehakaal (kg)</label>
-        <input type="number" name="" value=""><br>
+        <input id="weight" type="number" name="" value=""><br>
         <label>Pikkus (cm)</label>
-        <input type="number" name="" value=""><br>
+        <input id="height" type="number" name="" value=""><br>
         <label>KMI (kg/m2)</label>
-        <input type="number" name="" value=""><br>
+        <input id="bmi" type="number" name="" value=""><br>
         <label>Lisainfo*</label>
         <input id="addInfoWeight" type="text" name="" value=""><br>
         <button id="saveWeight" type="button" name="">Salvesta andmed</button>
@@ -84,6 +84,7 @@
         <button id="saveTemp" type="button" name="">Salvesta andmed</button>
     </form>
 </body>
+
 
 <script>
     let firstName = document.getElementById("firstName");
@@ -109,6 +110,31 @@
 
 
 
+        let idWeight = document.getElementById("idWeight");
+        let weightDate = document.getElementById("weightDate");
+        let weightTime = document.getElementById("weightTime");
+        let weight = document.getElementById("weight");
+        let height = document.getElementById("height");
+        let bmi = document.getElementById("bmi");
+        let addInfoWeight = document.getElementById("addInfoWeight");
+        let saveWeightButton = document.getElementById("saveWeightButton")
+
+        function addWeight() {
+        fetch('/medilog/weight?userid=' + idWeight.value + '&date=' + weightDate.value + '&time=' + weightTime.value +
+'&weight=' + weight.value + '&height=' + height.value + '&bmi=' + bmi.value + '&addinfo=' + addInfoWeight.value,
+{
+method: 'POST'
+})
+.then(result => result.text())
+.then(function (result) {
+alert("Andmed on salvestatud")
+})
+}
+saveWeightButton.onclick = addWeight;
+
+
+
 </script>
+
 </html>
 
