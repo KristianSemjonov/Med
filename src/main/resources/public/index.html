@@ -117,6 +117,24 @@
     }
     saveUserButton.onclick = newUser;
 
+    // http://localhost:8081/medilog/bloodsugar?userid=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addinfo=test
+    let bloodSugarDate = document.getElementById("bloodSugarDate");
+    let bloodSugarTime = document.getElementById("bloodSugarTime");
+    let bloodSugar = document.getElementById("bloodSugar");
+    let idBloodSugar = document.getElementById("idBloodSugar");
+    let addInfoBloodSugarButton = document.getElementById("addInfoBloodSugarButton");
+
+    function addBloodPressure() {
+        fetch('/medilog/bloodsugar?userid=' + idBloodSugar.value + '&date=' + bloodSugarDate.value + '&time=' + bloodSugarTime.value + '&bloodsugar=' +  bloodSugar.value + '&addinfo=' + addInfoBloodSugar.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Andmed on sisestatud")
+            })
+    }
+    addInfoBloodSugarButton.onclick = addBloodPressure;
 
     let idBloodPressure = document.getElementById("idBloodPressure");
     let bloodpressureDate = document.getElementById("bloodpressureDate");
