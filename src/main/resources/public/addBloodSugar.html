@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Blood sugar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+<body>
+<form class="addBloodSugar" action="index.html" method="post">
+    <h2>Veresuhkru mõõtmistulemused</h2><br>
+    <label>Kasutaja ID</label>
+    <input id="idBloodSugar" type="number" name="" value=""><br>
+    <label>Kuupäev</label>
+    <input id="bloodSugarDate" type="date" name="" value=""><br>
+    <label>Kellaaeg</label>
+    <input id="bloodSugarTime" type="time" name="" value=""><br>
+    <label>Veresuhkur (mmol/l)</label>
+    <input id="bloodSugar" type="number" name="" value=""><br>
+    <label>Lisainfo</label>
+    <input id="addInfoBloodSugar" type="text" name="" value=""><br>
+    <button id="saveBloodSugarButton" type="button" name="">Salvesta andmed</button><br>
+</form>
+</body>
+
+<script>
+
+    saveBloodSugarButton.onclick = addBloodSugar;
+
+
+
+    let idWeight = document.getElementById("idWeight");
+    let weightDate = document.getElementById("weightDate");
+    let weightTime = document.getElementById("weightTime");
+    let weight = document.getElementById("weight");
+    let height = document.getElementById("height");
+    let bmi = document.getElementById("bmi");
+    let addInfoWeight = document.getElementById("addInfoWeight");
+    let saveWeightButton = document.getElementById("saveWeightButton")
+    // http://localhost:8081/medilog/weight?userid=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addinfo=test
+    function addWeight() {
+        fetch('/medilog/weight?userid=' + idWeight.value + '&date=' + weightDate.value + '&time=' + weightTime.value +
+            '&weight=' + weight.value + '&height=' + height.value + '&bmi=' + bmi.value + '&addinfo=' + addInfoWeight.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Andmed on salvestatud")
+            })
+    }
+
+</script>
+
+</html>
