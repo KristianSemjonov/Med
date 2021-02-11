@@ -78,5 +78,7 @@
         </createTable>
     </changeSet>
 
-
+    <changeSet id="2021-02-11" author="HI">
+        <modifyDataType tableName="weight_bmi" columnName="height" newDataType="numeric(4,1)"/>
+    </changeSet>
 </databaseChangeLog>

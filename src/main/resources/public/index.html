@@ -21,7 +21,7 @@
     <input id="username" type="text" name=""/><br>
     <label>Salasõna</label>
     <input id="password" type="password" name=""><br>
-    <button id="saveUserButton" type="button" name="">Salvesta andmed</button>
+    <button id="saveUserButton" type="button" name="">Salvesta andmed</button><br>
 </form>
 
 <form class="bloodPressure" action="index.html" method="post">
@@ -32,30 +32,30 @@
     <input id="bloodPressureDate" type="date" name="" value=""><br>
     <label>Kellaaeg</label>
     <input id="bloodPressureTime" type="time" name="" value=""><br>
-    <label>Süstoolne vererõhk (mm/Hg)*</label>
+    <label>Süstoolne vererõhk (mm/Hg)</label>
     <input id="systolic" type="number" name="" value=""><br>
-    <label>Diastoolne vererõhk (mm/Hg)*</label>
+    <label>Diastoolne vererõhk (mm/Hg)</label>
     <input id="diastolic" type="number" name="" value=""><br>
     <label>Pulss (lööki/min)</label>
     <input id="pulse" type="number" name="" value=""><br>
     <label>Lisainfo</label>
     <input id="addInfoBloodPressure" type="text" name="" value=""><br>
-    <button id="saveBloodPressureButton" type="button" name="">Salvesta andmed</button>
+    <button id="saveBloodPressureButton" type="button" name="">Salvesta andmed</button><br>
 </form>
 
 <form class="bloodSugar" action="index.html" method="post">
-    <h2>Veresuhkuru mõõtmistulemused</h2><br>
+    <h2>Veresuhkru mõõtmistulemused</h2><br>
     <label>Kasutaja ID</label>
     <input id="idBloodSugar" type="number" name="" value=""><br>
     <label>Kuupäev</label>
     <input id="bloodSugarDate" type="date" name="" value=""><br>
-    <label>Kellaaeg*</label>
+    <label>Kellaaeg</label>
     <input id="bloodSugarTime" type="time" name="" value=""><br>
     <label>Veresuhkur (mmol/l)</label>
     <input id="bloodSugar" type="number" name="" value=""><br>
     <label>Lisainfo</label>
     <input id="addInfoBloodSugar" type="text" name="" value=""><br>
-    <button id="saveBloodSugarButton" type="button" name="">Salvesta andmed</button>
+    <button id="saveBloodSugarButton" type="button" name="">Salvesta andmed</button><br>
 </form>
 
 
@@ -73,9 +73,9 @@
     <input id="height" type="number" name="" value=""><br>
     <label>KMI (kg/m2)</label>
     <input id="bmi" type="number" name="" value=""><br>
-    <label>Lisainfo*</label>
+    <label>Lisainfo</label>
     <input id="addInfoWeight" type="text" name="" value=""><br>
-    <button id="saveWeightButton" type="button" name="">Salvesta andmed</button>
+    <button id="saveWeightButton" type="button" name="">Salvesta andmed</button><br>
 </form>
 
 
@@ -140,11 +140,12 @@
     saveBloodPressureButton.onclick = addBloodPressure;
 
 
+    let idBloodSugar = document.getElementById("idBloodSugar");
     let bloodSugarDate = document.getElementById("bloodSugarDate");
     let bloodSugarTime = document.getElementById("bloodSugarTime");
     let bloodSugar = document.getElementById("bloodSugar");
-    let idBloodSugar = document.getElementById("idBloodSugar");
-    let addInfoBloodSugarButton = document.getElementById("addInfoBloodSugarButton");
+    let addInfoBloodSugar = document.getElementById("addInfoBloodSugar");
+    let saveBloodSugarButton = document.getElementById("saveBloodSugarButton");
     // http://localhost:8081/medilog/bloodsugar?userid=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addinfo=test
     function addBloodSugar() {
         fetch('/medilog/bloodsugar?userid=' + idBloodSugar.value + '&date=' + bloodSugarDate.value + '&time=' + bloodSugarTime.value + '&bloodsugar=' + bloodSugar.value + '&addinfo=' + addInfoBloodSugar.value,
@@ -156,7 +157,7 @@
                 alert("Andmed on sisestatud")
             })
     }
-    addInfoBloodSugarButton.onclick = addBloodSugar;
+    saveBloodSugarButton.onclick = addBloodSugar;
 
 
 
@@ -188,7 +189,7 @@
     let tempTime = document.getElementById("tempTime");
     let temp = document.getElementById("temp");
     let addInfoTemp = document.getElementById("addInfoTemp");
-    let saveTempButton = document.getElementById("saveTemp");
+    let saveTempButton = document.getElementById("saveTempButton");
     // http://localhost:8081/medilog/temperature?userid=1&date=2021-02-04&time=16:20&temp=37.6&addinfo=test
     function addTemperature() {
         fetch('/medilog/temperature?userid=' + idTemp.value + '&date=' + tempDate.value + '&time=' + tempTime.value
