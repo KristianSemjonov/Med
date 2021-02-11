@@ -6,8 +6,9 @@
 </head>
 
 <body>
-<h2>Uue kasutaja loomine</h2>
+
     <form class="Kasutaja" action="index.html" method="post"><br>
+        <h2>Uue kasutaja loomine</h2>
         <label>Eesnimi</label>
         <input id="firstName" type="text" name=""/><br>
         <label>Perekonnanimi</label>
@@ -22,7 +23,7 @@
     </form>
 
     <form class="" action="index.html" method="post">
-        <h2>Vererõhk</h2><br>
+        <h2>Vererõhu mõõtmistulemused</h2><br>
         <label>Kuupäev</label>
         <input id="bloodpressureDate" type="date" name="" value=""><br>
         <label>Kellaaeg*</label>
@@ -34,40 +35,41 @@
         <label>Pulss (lööki/min)</label>
         <input id="pulse" type="numeric (3)" name="" value=""><br>
         <label>Lisainfo</label>
-        <input id="addInfo" type="text" name="" value=""><br>
-
+        <input id="addInfoBloodPressure" type="text" name="" value=""><br>
+        <button id="saveBloodPressure" type="button" name="">Salvesta andmed</button>
     </form>
 
     <form class="" action="index.html" method="post">
-        <h2>Veresuhkur</h2><br>
+        <h2>Veresuhkuru mõõtmistulemused</h2><br>
         <label>Kuupäev</label>
         <input id="bloodsugarDate" type="date" name="" value=""><br>
         <label>Kellaaeg*</label>
         <input id="bloodsugarTime" type="time" name="" value=""><br>
         <label>Veresuhkur (mmol/l)</label>
-        <input id="bloodSugar" type="numeric(3,1)" name="" value=""><br>
+        <input id="bloodSugar" type="number" name="" value=""><br>
         <label>Lisainfo*</label>
-        <input type="text" name="" value=""><br>
-
+        <input id="addInfoBloodSugar" type="text" name="" value=""><br>
+        <button id="saveBloodSugar" type="button" name="">Salvesta andmed</button>
     </form>
 
-<body>
-<form class="" action="index.html" method="post">
-    <label>Kehakaal ja KMI</label><br>
-    <label>Kuupäev</label>
-    <input type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input type="time" name="" value=""><br>
-    <label>Kehakaal (kg)</label>
-    <input type="numeric(5,2)" name="" value=""><br>
-    <label>Pikkus (cm)</label>
-    <input type="numeric(3,2)" name="" value=""><br>
-    <label>KMI (kg/m2)</label>
-    <input type="numeric(3,1)" name="" value=""><br>
-    <label>Lisainfo*</label>
-    <input type="text" name="" value=""><br>
-</form>
-</body>
+
+    <form class="" action="index.html" method="post">
+        <h2>Kehakaal ja KMI</h2><br>
+        <label>Kuupäev</label>
+        <input type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input type="time" name="" value=""><br>
+        <label>Kehakaal (kg)</label>
+        <input type="number" name="" value=""><br>
+        <label>Pikkus (cm)</label>
+        <input type="number" name="" value=""><br>
+        <label>KMI (kg/m2)</label>
+        <input type="number" name="" value=""><br>
+        <label>Lisainfo*</label>
+        <input id="addInfoWeight" type="text" name="" value=""><br>
+        <button id="saveWeight" type="button" name="">Salvesta andmed</button>
+    </form>
+
 
     <form class="" action="index.html" method="post">
         <h2>Kehatemperatuur</h2><br>
@@ -76,10 +78,10 @@
         <label>Kellaaeg</label>
         <input id= "tempTime" type="time" name="" value=""><br>
         <label>Kehatemperatuur (°C)</label>
-        <input id="temp" type="numeric(3,1)" name="" value=""><br>
+        <input id="temp" type="" name="" value=""><br>
         <label>Lisainfo*</label>
-        <input id="inf" type="text" name="" value=""><br>
-        <button id="saveTemperature" type="button" name="">Salvesta näidud</button>
+        <input id="addInfoTemp" type="text" name="" value=""><br>
+        <button id="saveTemp" type="button" name="">Salvesta andmed</button>
     </form>
 </body>
 
@@ -100,7 +102,7 @@
             })
             .then(result => result.text())
             .then(function (result) {
-                alert("Uus kasutaja on loodud!")
+                alert("Uus kasutaja on loodud")
             })
     }
     saveUserButton.onclick = newUser;
