@@ -3,13 +3,12 @@ package com.medilog.demo.medilog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @Service
 public class MedilogService {
@@ -38,4 +37,19 @@ public class MedilogService {
         medilogRepository.bodyTemp(userId, date, time, temp, addInfo);
     }
 
+    public List diaryBloodPressure(int userId) {
+        return medilogRepository.diaryBloodPressure(userId);
+    }
+
+    public List diaryBloodSugar(int userId) {
+        return medilogRepository.diaryBloodSugar(userId);
+    }
+
+    public List diaryWeight(int userId) {
+        return medilogRepository.diaryWeight(userId);
+    }
+
+    public List diaryTemperature(int userId) {
+        return medilogRepository.diaryTemperature(userId);
+    }
 }

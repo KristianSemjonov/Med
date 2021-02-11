@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -77,6 +77,34 @@ public class MedilogRepository {
         paramMap.put("temp", temp);
         paramMap.put("addInfo", addInfo);
         jdbcTemplate.update(sql, paramMap);
+    }
+
+    public List diaryBloodPressure(int userId) {
+        String sql = "SELECT * FROM blood_pressure WHERE user_id = :userId";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userId", userId);
+        return jdbcTemplate.query(sql,paramMap, new BloodPressureDiaryRowMapper());
+    }
+
+    public List diaryBloodSugar(int userId) {
+        String sql = "SELECT * FROM blood_sugar WHERE user_id = :userId";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userId", userId);
+        return jdbcTemplate.query(sql,paramMap, new BloodSugarDiaryRowMapper());
+    }
+
+    public List diaryWeight(int userId) {
+        String sql = "SELECT * FROM weight_bmi WHERE user_id = :userId";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userId", userId);
+        return jdbcTemplate.query(sql,paramMap, new WeightDiaryRowMapper());
+    }
+
+    public List diaryTemperature(int userId) {
+        String sql = "SELECT * FROM body_temp WHERE user_id = :userId";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("userId", userId);
+        return jdbcTemplate.query(sql,paramMap, new TemperatureDiaryRowMapper());
     }
 
 }
