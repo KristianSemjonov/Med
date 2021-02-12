@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Medilog addTemperature</title>
+    <title>Add Temperature</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
+
 <body>
-<form class="addTemperature" action="index.html" method="post">
-    <h2>Kehatemperatuur</h2><br>
-    <label>Kasutaja ID</label>
-    <input id="idTemp" type="number" name="" value=""><br>
-    <label>Kuupäev</label>
-    <input id="tempDate" type="date" name="" value=""><br>
-    <label>Kellaaeg</label>
-    <input id="tempTime" type="time" name="" value=""><br>
-    <label>Kehatemperatuur (°C)</label>
-    <input id="temp" type="number" name="" value=""><br>
-    <label>Lisainfo</label>
-    <input id="addInfoTemp" type="text" name="" value=""><br>
-    <button id="saveTempButton" type="button" name="">Salvesta andmed</button>
-</form>
+    <form class="addTemperature" action="index.html" method="post">
+        <h2>Kehatemperatuur</h2><br>
+        <label>Kasutaja ID</label>
+        <input id="idTemp" type="number" name="" value=""><br>
+        <label>Kuupäev</label>
+        <input id="tempDate" type="date" name="" value=""><br>
+        <label>Kellaaeg</label>
+        <input id="tempTime" type="time" name="" value=""><br>
+        <label>Kehatemperatuur (°C)</label>
+        <input id="temp" type="number" name="" value=""><br>
+        <label>Lisainfo</label>
+        <input id="addInfoTemp" type="text" name="" value=""><br>
+        <button id="saveTempButton" type="button" name="">Salvesta andmed</button>
+    </form>
 </body>
+
 <script>
     let idTemp = document.getElementById("idTemp");
     let tempDate = document.getElementById("tempDate");
@@ -41,6 +43,5 @@
             })
     }
     saveTempButton.onclick = addTemperature;
-
 </script>
 </html>
