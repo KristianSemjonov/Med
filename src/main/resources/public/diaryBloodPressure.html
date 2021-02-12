@@ -13,7 +13,8 @@
         <input id="idBloodPressure" type="number" name="" value="">
         <button id="diaryBloodPressureButton" type="button" name="">Vaata päevikut</button>
         <br>
-        <table id="diaryBloodPressureTable">
+        <table border="1">
+            <tbody id="diaryBloodPressureTable">
             <tr>
                 <th>Kuupäev</th>
                 <th>Kellaaeg</th>
@@ -22,6 +23,7 @@
                 <th>Pulss (lööki/min)</th>
                 <th>Lisainfo</th>
             </tr>
+            </tbody>
         </table>
     </div>
 </body>
@@ -34,11 +36,11 @@
             .then(function (result) {
                 let tableElement = document.getElementById("diaryBloodPressureTable");
                 tableElement.innerHTML = "<tr>\n" +
-                    "                <th>Kuupäev </th>\n" +
-                    "                <th>Kellaaeg </th>\n" +
-                    "                <th>Süstoolne vererõhk (mm/hg) </th>\n" +
-                    "                <th>Diastoolne vererõhk (mm/hg) </th>\n" +
-                    "                <th>Pulss (lööki/min) </th>\n" +
+                    "                <th>Kuupäev</th>\n" +
+                    "                <th>Kellaaeg</th>\n" +
+                    "                <th>Süstoolne vererõhk (mmHg)</th>\n" +
+                    "                <th>Diastoolne vererõhk (mmHg)</th>\n" +
+                    "                <th>Pulss (lööki/min)</th>\n" +
                     "                <th>Lisainfo</th>\n" +
                     "            </tr>";
                 for (let element of result) {
@@ -66,7 +68,7 @@
                     newRowElement.appendChild(newCellElement)
                     // Lisainfo
                     newCellElement = document.createElement("td");
-                    newCellElement.innerText = element.addTime;
+                    newCellElement.innerText = element.addInfo;
                     newRowElement.appendChild(newCellElement)
                 }
                 console.log(result);
