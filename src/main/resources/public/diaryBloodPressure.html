@@ -41,7 +41,14 @@
             .then(result => result.json())
             .then(function (result) {
                 let tableElement = document.getElementById("diaryBloodPressureTable");
-                tableElement.innerHTML = "";
+                tableElement.innerHTML = "<tr>\n" +
+                    "                <th>Kuupäev </th>\n" +
+                    "                <th>Kellaaeg </th>\n" +
+                    "                <th>Süstoolne vererõhk (mm/hg) </th>\n" +
+                    "                <th>Diastoolne vererõhk (mm/hg) </th>\n" +
+                    "                <th>Pulss (lööki/min) </th>\n" +
+                    "                <th>Lisainfo</th>\n" +
+                    "            </tr>";
                 for (let element of result) {
                     let newRowElement = document.createElement("tr");
                     tableElement.appendChild(newRowElement);
