@@ -2,25 +2,23 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>View blood pressure diary</title>
+    <title>View Temperature diary</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="diaryBloodPressure">
-        <h2>Vaata vererõhu mõõtmistulemusi</h2><br>
+    <div class="diaryTemperature">
+        <h2>Vaata temperatuuri tabelit</h2><br>
         <label>Kasutaja ID</label>
-        <input id="idBloodPressure" type="number" name="" value="">
-        <button id="diaryBloodPressureButton" type="button" name="">Vaata päevikut</button>
+        <input id="idTemp" type="number" name="" value="">
+        <button id="diaryTemperature" type="button" name="">Vaata päevikut</button>
         <br>
         <table border="1">
-            <tbody id="diaryBloodPressureTable">
+            <tbody id="diaryTemperatureTable">
             <tr>
                 <th>Kuupäev</th>
-                <th>Kellaaeg</th>
-                <th>Süstoolne vererõhk (mmHg)</th>
-                <th>Diastoolne vererõhk (mmHg)</th>
-                <th>Pulss (lööki/min)</th>
+                <th>Kellaaeg </th>
+                <th>Temperatuur</th>
                 <th>Lisainfo</th>
             </tr>
             </tbody>
@@ -29,18 +27,16 @@
 </body>
 
 <script>
-    // http://localhost:8081/medilog/diarybloodpressure?userid=1
-    function diaryBloodPressure() {
-        fetch('/medilog/diarybloodpressure?userid=' + idBloodPressure.value)
+    // http://localhost:8081/medilog/diarytemperature?userid=1
+    function diaryTemperature() {
+        fetch('/medilog/diarytemperature?userid=' + idTemp.value)
             .then(result => result.json())
             .then(function (result) {
-                let tableElement = document.getElementById("diaryBloodPressureTable");
+                let tableElement = document.getElementById("diaryTemperatureTable");
                 tableElement.innerHTML = "<tr>\n" +
                     "                <th>Kuupäev</th>\n" +
                     "                <th>Kellaaeg</th>\n" +
-                    "                <th>Süstoolne vererõhk (mmHg)</th>\n" +
-                    "                <th>Diastoolne vererõhk (mmHg)</th>\n" +
-                    "                <th>Pulss (lööki/min)</th>\n" +
+                    "                <th>Temperatuur</th>\n" +
                     "                <th>Lisainfo</th>\n" +
                     "            </tr>";
                 for (let element of result) {
@@ -54,17 +50,9 @@
                     newCellElement = document.createElement("td");
                     newCellElement.innerText = element.time;
                     newRowElement.appendChild(newCellElement)
-                    // Süstoolne
+                    // Temperatuur
                     newCellElement = document.createElement("td");
-                    newCellElement.innerText = element.systolic;
-                    newRowElement.appendChild(newCellElement)
-                    // Diastoolne
-                    newCellElement = document.createElement("td");
-                    newCellElement.innerText = element.diastolic;
-                    newRowElement.appendChild(newCellElement)
-                    // Pulss
-                    newCellElement = document.createElement("td");
-                    newCellElement.innerText = element.pulse;
+                    newCellElement.innerText = element.temp;
                     newRowElement.appendChild(newCellElement)
                     // Lisainfo
                     newCellElement = document.createElement("td");
@@ -74,8 +62,8 @@
                 console.log(result);
             })
     }
-    let diaryBloodPressureButton = document.getElementById("diaryBloodPressureButton");
-    diaryBloodPressureButton.onclick = diaryBloodPressure;
+    let diaryTemperatureButton = document.getElementById("diaryTemperature");
+    diaryTemperatureButton.onclick = diaryTemperature;
 </script>
 </html>
 
