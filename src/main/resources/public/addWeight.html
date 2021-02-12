@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Medilog addWeight</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Add Weight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
 <form class="addWeight" action="index.html" method="post">
@@ -22,31 +23,31 @@
     <input id="bmi" type="number" name="" value=""><br>
     <label>Lisainfo</label>
     <input id="addInfoWeight" type="text" name="" value=""><br>
-    <button id="saveWeightButton" type="button" name="">Salvesta andmed</button><br>
+    <button id="saveWeightButton" type="button" name="">Salvesta andmed</button>
+    <br>
 </form>
 </body>
 <script>
-let idWeight = document.getElementById("idWeight");
-let weightDate = document.getElementById("weightDate");
-let weightTime = document.getElementById("weightTime");
-let weight = document.getElementById("weight");
-let height = document.getElementById("height");
-let bmi = document.getElementById("bmi");
-let addInfoWeight = document.getElementById("addInfoWeight");
-let saveWeightButton = document.getElementById("saveWeightButton")
-// http://localhost:8081/medilog/weight?userid=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addinfo=test
-function addWeight() {
-fetch('/medilog/weight?userid=' + idWeight.value + '&date=' + weightDate.value + '&time=' + weightTime.value +
-'&weight=' + weight.value + '&height=' + height.value + '&bmi=' + bmi.value + '&addinfo=' + addInfoWeight.value,
-{
-method: 'POST'
-})
-.then(result => result.text())
-.then(function (result) {
-alert("Andmed on salvestatud")
-})
-}
-saveWeightButton.onclick = addWeight;
+    let idWeight = document.getElementById("idWeight");
+    let weightDate = document.getElementById("weightDate");
+    let weightTime = document.getElementById("weightTime");
+    let weight = document.getElementById("weight");
+    let height = document.getElementById("height");
+    let bmi = document.getElementById("bmi");
+    let addInfoWeight = document.getElementById("addInfoWeight");
+    let saveWeightButton = document.getElementById("saveWeightButton")
+    // http://localhost:8081/medilog/weight?userid=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addinfo=test
+    function addWeight() {
+        fetch('/medilog/weight?userid=' + idWeight.value + '&date=' + weightDate.value + '&time=' + weightTime.value +
+            '&weight=' + weight.value + '&height=' + height.value + '&bmi=' + bmi.value + '&addinfo=' + addInfoWeight.value,
+            {
+                method: 'POST'
+            })
+            .then(result => result.text())
+            .then(function (result) {
+                alert("Andmed on salvestatud")
+            })
+    }
+    saveWeightButton.onclick = addWeight;
 </script>
-
 </html>

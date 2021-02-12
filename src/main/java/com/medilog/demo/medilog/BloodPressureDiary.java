@@ -1,5 +1,7 @@
 package com.medilog.demo.medilog;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -67,4 +69,5 @@ public class BloodPressureDiary {
     public void setAddInfo(String addInfo) {
         this.addInfo = addInfo;
     }
+
 }
