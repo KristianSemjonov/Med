@@ -29,7 +29,7 @@
 </body>
 
 <script>
-    // http://localhost:8081/medilog/diarybloodpressure?userid=1
+    // http://localhost:8081/diarybloodpressure.html
     function diaryBloodPressure() {
         fetch('/medilog/diarybloodpressure?userid=' + idBloodPressure.value)
             .then(result => result.json())
@@ -75,7 +75,7 @@
             })
     }
     let diaryBloodPressureButton = document.getElementById("diaryBloodPressureButton");
-    diaryBloodPressureButton.onclick = diaryBloodPressure;
+    diaryBloodPressureButton.onclick = bloodPressureDiary;
 </script>
 </html>
 

@@ -17,8 +17,8 @@
             <tbody id="diaryTemperatureTable">
             <tr>
                 <th>Kuupäev</th>
-                <th>Kellaaeg </th>
-                <th>Temperatuur</th>
+                <th>Kellaaeg</th>
+                <th>Temperatuur (°C)</th>
                 <th>Lisainfo</th>
             </tr>
             </tbody>
@@ -27,7 +27,7 @@
 </body>
 
 <script>
-    // http://localhost:8081/medilog/diarytemperature?userid=1
+    // http://localhost:8081/diarytemperature.html
     function diaryTemperature() {
         fetch('/medilog/diarytemperature?userid=' + idTemp.value)
             .then(result => result.json())
@@ -36,7 +36,7 @@
                 tableElement.innerHTML = "<tr>\n" +
                     "                <th>Kuupäev</th>\n" +
                     "                <th>Kellaaeg</th>\n" +
-                    "                <th>Temperatuur</th>\n" +
+                    "                <th>Temperatuur (°C)</th>\n" +
                     "                <th>Lisainfo</th>\n" +
                     "            </tr>";
                 for (let element of result) {

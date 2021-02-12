@@ -17,7 +17,7 @@
         <tr>
             <th>Kuupäev</th>
             <th>Kellaaeg</th>
-            <th>Veresuhkur</th>
+            <th>Veresuhkur (mmol/l)</th>
             <th>Lisainfo</th>
         </tr>
         </tbody>
@@ -26,16 +26,16 @@
 </body>
 
 <script>
-    // http://localhost:8081/medilog/diarybloodsugar?userid=1
+    // http://localhost:8081/diarybloodsugar.html
     function diaryBloodSugar() {
         fetch('/medilog/diarybloodsugar?userid=' + idBloodSugar.value)
             .then(result => result.json())
             .then(function (result) {
                 let tableElement = document.getElementById("diaryBloodSugarTable");
                 tableElement.innerHTML = "<tr>\n" +
-                    "                <th>Kuupäev </th>\n" +
-                    "                <th>Kellaaeg </th>\n" +
-                    "                <th>Veresuhkur (mmol/l) </th>\n" +
+                    "                <th>Kuupäev</th>\n" +
+                    "                <th>Kellaaeg</th>\n" +
+                    "                <th>Veresuhkur (mmol/l)</th>\n" +
                     "                <th>Lisainfo</th>\n" +
                     "            </tr>";
                 for (let element of result) {
