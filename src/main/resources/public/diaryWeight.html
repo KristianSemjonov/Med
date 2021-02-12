@@ -31,10 +31,10 @@
 <script>
     // http://localhost:8081/diaryweight.html
     function diaryWeight() {
-        fetch('/http://localhost:8081/medilog/diaryweight?userid=' + idWeight.value)
+        fetch('/medilog/diaryweight?userid=' + idWeight.value)
             .then(result => result.json())
             .then(function (result) {
-                let tableElement = document.getElementById("weightDiaryTable");
+                let tableElement = document.getElementById("diaryWeightTable");
                 tableElement.innerHTML = "<tr>\n" +
                     "                <th>Kuupäev</th>\n" +
                     "                <th>Kellaaeg</th>\n" +
