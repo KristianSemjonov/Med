@@ -16,7 +16,6 @@ public class BloodSugarDiaryRowMapper implements RowMapper<BloodSugarDiary> {
         bloodSugarDiary.setTime(resultSet.getObject("time", LocalTime.class));
         bloodSugarDiary.setBloodSugar(resultSet.getBigDecimal("blood_sugar"));
         bloodSugarDiary.setAddInfo(resultSet.getString("add_info"));
-
         return bloodSugarDiary;
     }
 }
