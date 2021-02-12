@@ -7,20 +7,20 @@
 </head>
 
 <body>
-    <div class="weightDiary">
+    <div class="diaryWeight">
         <h2>Vaata kehakaalu ja KMI</h2><br>
         <label>Kasutaja ID</label>
         <input id="idWeight" type="number" name="" value="">
-        <button id="weightDiaryButton" type="button" name="">Vaata päevikut</button>
+        <button id="diaryWeightButton" type="button" name="">Vaata päevikut</button>
         <br>
         <table border = "1">
-                <tbody id="weightDiaryTable">
+                <tbody id="diaryWeightTable">
             <tr>
                 <th>Kuupäev</th>
                 <th>Kellaaeg</th>
                 <th>Kehakaal (kg)</th>
-                <th>Pikkus(cm)</th>
-                <th>KMI(kg/m2)</th>
+                <th>Pikkus (m)</th>
+                <th>KMI (kg/m2)</th>
                 <th>Lisainfo</th>
             </tr>
             </tbody>
@@ -29,13 +29,20 @@
 </body>
 
 <script>
-    // http://localhost:8081/weightDiary.html
-    function weightDiary() {
-        fetch('/http://localhost:8081/medilog/diaryweight?userid=' + idBloodPressure.value)
+    // http://localhost:8081/diaryweight.html
+    function diaryWeight() {
+        fetch('/http://localhost:8081/medilog/diaryweight?userid=' + idWeight.value)
             .then(result => result.json())
             .then(function (result) {
                 let tableElement = document.getElementById("weightDiaryTable");
-                tableElement.innerHTML = "";
+                tableElement.innerHTML = "<tr>\n" +
+                    "                <th>Kuupäev</th>\n" +
+                    "                <th>Kellaaeg</th>\n" +
+                    "                <th>Kehakaal (kg)</th>\n" +
+                    "                <th>Pikkus (m)</th>\n" +
+                    "                <th>KMI (kg/m2)</th>\n" +
+                    "                <th>Lisainfo</th>\n" +
+                    "            </tr>";
                 for (let element of result) {
                     let newRowElement = document.createElement("tr");
                     tableElement.appendChild(newRowElement);
@@ -67,8 +74,8 @@
                 console.log(result);
             })
     }
-    let weightDiaryButton = document.getElementById("weightDiaryButton");
-    weightDiaryButton.onclick = weightDiary;
+    let diaryWeightButton = document.getElementById("diaryWeightButton");
+    diaryWeightButton.onclick = diaryWeight;
 </script>
 </html>
 
