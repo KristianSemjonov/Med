@@ -107,4 +107,10 @@ public class MedilogRepository {
         return jdbcTemplate.query(sql,paramMap, new TemperatureDiaryRowMapper());
     }
 
+    public boolean checkForUser(long idCode) {
+        String sql = "SELECT count(*) FROM users WHERE id_code = :idCode";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("idCode", idCode);
+        return jdbcTemplate.queryForObject(sql, paramMap, Integer.class) > 0;
+    }
 }
