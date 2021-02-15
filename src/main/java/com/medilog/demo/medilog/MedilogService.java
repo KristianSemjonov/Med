@@ -18,8 +18,14 @@ public class MedilogService {
 
     @Transactional
     public void createUser(String firstName, String lastName, long idCode, String username, String password) {
-        medilogRepository.createUser(firstName, lastName, idCode, username, password);
+
+        if (medilogRepository.checkForUser(idCode)) {
+            throw new MedException("Kasutaja on juba olemas");
+        } else {
+            medilogRepository.createUser(firstName, lastName, idCode, username, password);
+        }
     }
+
     public void bloodPressure(int userId, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
         medilogRepository.bloodPressure(userId, date, time, systolic, diastolic, pulse, addInfo);
     }
