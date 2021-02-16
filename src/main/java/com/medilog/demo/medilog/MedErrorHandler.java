@@ -16,9 +16,9 @@ public class MedErrorHandler {
         return new ResponseEntity<>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST );
     }
     @ExceptionHandler (MedException.class)
-    public ResponseEntity<Object>handleMyException(MedException me) {
+    public ResponseEntity<ResponseError>handleMyException(MedException me) {
         ResponseError error = new ResponseError();
-        error.setMessage("Vea teavitus");
-        return new ResponseEntity<Object>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        error.setMessage("Kasutaja on juba olemas");
+        return new ResponseEntity<>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 }
