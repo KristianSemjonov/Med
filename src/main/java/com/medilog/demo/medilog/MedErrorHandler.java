@@ -12,13 +12,13 @@ public class MedErrorHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseError>handleException(Exception e){
         ResponseError error = new ResponseError();
-        error.setMessage("Täida lahter");
+        error.setMessage("Ilmnes viga");
         return new ResponseEntity<>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST );
     }
     @ExceptionHandler (MedException.class)
     public ResponseEntity<Object>handleMyException(MedException me) {
         ResponseError error = new ResponseError();
-        error.setMessage("Ilmnes viga");
+        error.setMessage("Vea teavitus");
         return new ResponseEntity<Object>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 }
