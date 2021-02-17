@@ -29,6 +29,13 @@ public class MedilogRepository {
         jdbcTemplate.update(sql, paramMap);
     }
 
+    public String getPassword(String username) {
+        String sql = "SELECT password FROM users WHERE username = :username";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("username", username);
+        return jdbcTemplate.queryForObject(sql, paramMap, String.class);
+    }
+    
     public void bloodPressure(int userId, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
         String sql = "INSERT INTO blood_pressure (user_id, date, time, systolic, diastolic, pulse, add_info) " +
                 "VALUES (:userId, :date, :time, :systolic, :diastolic, :pulse, :addInfo)";
