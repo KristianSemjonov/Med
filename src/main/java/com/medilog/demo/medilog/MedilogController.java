@@ -29,74 +29,71 @@ public class MedilogController {
     // http://localhost:8081/medilog/login?username=mammu&password=Mammu555
     @GetMapping("login")
     public String login(@RequestParam("username") String username,
-                           @RequestParam("password") String rawPassword) {
+                        @RequestParam("password") String rawPassword) {
         return medilogService.login(username, rawPassword);
     }
 
-    // http://localhost:8081/medilog/bloodpressure?userid=1&date=2021-02-04&time=16:20&systolic=141&diastolic=80&pulse=72&addInfo=test
+    // http://localhost:8081/medilog/bloodpressure?userId=1&date=2021-02-04&time=16:20&systolic=141&diastolic=80&pulse=72&addInfo=test
     @PostMapping("bloodpressure")
-    public void bloodPressure(@RequestParam("userid") int userId,
-                              @RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
+    public void bloodPressure(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
                               @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
                               @RequestParam("systolic") int systolic,
                               @RequestParam("diastolic") int diastolic,
                               @RequestParam("pulse") int pulse,
                               @RequestParam("addInfo") String addInfo) {
-        medilogService.bloodPressure(userId, date, time, systolic, diastolic, pulse, addInfo);
+        medilogService.bloodPressure(1, date, time, systolic, diastolic, pulse, addInfo);
     }
 
-    // http://localhost:8081/medilog/bloodsugar?userid=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addInfo=test
+    // http://localhost:8081/medilog/bloodsugar?userId=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addInfo=test
     @PostMapping("bloodsugar")
-    public void bloodPressure(@RequestParam("userid") int userId,
-                              @RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
-                              @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
-                              @RequestParam("bloodsugar") BigDecimal bloodSugar,
-                              @RequestParam("addInfo") String addInfo) {
-        medilogService.bloodSugar(userId, date, time, bloodSugar, addInfo);
+    public void bloodSugar(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
+                           @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
+                           @RequestParam("bloodsugar") BigDecimal bloodSugar,
+                           @RequestParam("addInfo") String addInfo) {
+        medilogService.bloodSugar(1, date, time, bloodSugar, addInfo);
     }
 
-    // http://localhost:8081/medilog/weight?userid=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addInfo=test
+    // http://localhost:8081/medilog/weight?userId=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addInfo=test
     @PostMapping("weight")
-    public void bloodPressure(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
-                              @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
-                              @RequestParam("weight") BigDecimal weight,
-                              @RequestParam("height") BigDecimal height,
-                              @RequestParam("bmi") BigDecimal bmi,
-                              @RequestParam("addInfo") String addInfo) {
+    public void weight(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
+                       @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
+                       @RequestParam("weight") BigDecimal weight,
+                       @RequestParam("height") BigDecimal height,
+                       @RequestParam("bmi") BigDecimal bmi,
+                       @RequestParam("addInfo") String addInfo) {
         medilogService.weight(1, date, time, weight, height, bmi, addInfo);
     }
 
-    // http://localhost:8081/medilog/temperature?userid=1&date=2021-02-04&time=16:20&temp=37.6&addInfo=test
+    // http://localhost:8081/medilog/temperature?userId=1&date=2021-02-04&time=16:20&temp=37.6&addInfo=test
     @PostMapping("temperature")
-    public void bodyTemp(@RequestParam("userid") int userId,
-                         @RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
+    public void bodyTemp(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
                          @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
                          @RequestParam("temp") BigDecimal temp,
                          @RequestParam("addInfo") String addInfo) {
-        medilogService.bodyTemp(userId, date, time, temp, addInfo);
+        medilogService.bodyTemp(1, date, time, temp, addInfo);
     }
 
-    // http://localhost:8081/medilog/diarybloodpressure?userid=1
+    // http://localhost:8081/medilog/diarybloodpressure?userId=1
     @GetMapping("diarybloodpressure")
     public List<BloodPressureDiary> diaryBloodPressure(@RequestParam ("userid") int userId) {
         return medilogService.diaryBloodPressure(userId);
     }
 
-    // http://localhost:8081/medilog/diarybloodsugar?userid=1
+    // http://localhost:8081/medilog/diarybloodsugar?userId=1
     @GetMapping("diarybloodsugar")
-    public List<BloodPressureDiary> diaryBloodSugar(@RequestParam ("userid") int userId) {
+    public List<BloodSugarDiary> diaryBloodSugar(@RequestParam ("userid") int userId) {
         return medilogService.diaryBloodSugar(userId);
     }
 
-    // http://localhost:8081/medilog/diaryweight?userid=1
+    // http://localhost:8081/medilog/diaryweight?userId=1
     @GetMapping("diaryweight")
-    public List<BloodPressureDiary> diaryWeight(@RequestParam ("userid") int userId) {
+    public List<WeightDiary> diaryWeight(@RequestParam ("userid") int userId) {
         return medilogService.diaryWeight(userId);
     }
 
-    // http://localhost:8081/medilog/diarytemperature?userid=1
+    // http://localhost:8081/medilog/diarytemperature?userId=1
     @GetMapping("diarytemperature")
-    public List<BloodPressureDiary> diaryTemperature(@RequestParam ("userid") int userId) {
+    public List<TemperatureDiary> diaryTemperature(@RequestParam ("userid") int userId) {
         return medilogService.diaryTemperature(userId);
     }
 
