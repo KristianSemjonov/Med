@@ -2,6 +2,8 @@ package com.medilog.demo.medilog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -39,18 +41,22 @@ public class MedilogController {
                               @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
                               @RequestParam("systolic") int systolic,
                               @RequestParam("diastolic") int diastolic,
-                              @RequestParam("pulse") int pulse,
-                              @RequestParam("addInfo") String addInfo) {
-        medilogService.bloodPressure(1, date, time, systolic, diastolic, pulse, addInfo);
+                              @RequestParam(value = "pulse", required = false) int pulse,
+                              @RequestParam(value = "addInfo", required = false) String addInfo,
+                              Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        medilogService.bloodPressure(userDetails.getUsername(), date, time, systolic, diastolic, pulse, addInfo);
     }
 
-    // http://localhost:8081/medilog/bloodsugar?userId=1&date=2021-02-04&time=16:20&bloodsugar=5.6&addInfo=test
+    // http://localhost:8081/medilog/bloodsugar?userId=1&date=2021-02-04&time=16:20&bloodSugar=5.6&addInfo=test
     @PostMapping("bloodsugar")
     public void bloodSugar(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
                            @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
-                           @RequestParam("bloodsugar") BigDecimal bloodSugar,
-                           @RequestParam("addInfo") String addInfo) {
-        medilogService.bloodSugar(1, date, time, bloodSugar, addInfo);
+                           @RequestParam("bloodSugar") BigDecimal bloodSugar,
+                           @RequestParam(value = "addInfo", required = false) String addInfo,
+                           Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        medilogService.bloodSugar(userDetails.getUsername(), date, time, bloodSugar, addInfo);
     }
 
     // http://localhost:8081/medilog/weight?userId=1&date=2021-02-04&time=16:20&weight=76&height=180&bmi=23.5&addInfo=test
@@ -60,8 +66,10 @@ public class MedilogController {
                        @RequestParam("weight") BigDecimal weight,
                        @RequestParam("height") BigDecimal height,
                        @RequestParam("bmi") BigDecimal bmi,
-                       @RequestParam("addInfo") String addInfo) {
-        medilogService.weight(1, date, time, weight, height, bmi, addInfo);
+                       @RequestParam(value = "addInfo", required = false) String addInfo,
+                       Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        medilogService.weight(userDetails.getUsername(), date, time, weight, height, bmi, addInfo);
     }
 
     // http://localhost:8081/medilog/temperature?userId=1&date=2021-02-04&time=16:20&temp=37.6&addInfo=test
@@ -69,8 +77,10 @@ public class MedilogController {
     public void bodyTemp(@RequestParam("date") @DateTimeFormat(iso=DateTimeFormat.ISO.DATE) LocalDate date,
                          @RequestParam("time") @DateTimeFormat(iso=DateTimeFormat.ISO.TIME) LocalTime time,
                          @RequestParam("temp") BigDecimal temp,
-                         @RequestParam("addInfo") String addInfo) {
-        medilogService.bodyTemp(1, date, time, temp, addInfo);
+                         @RequestParam(value = "addInfo", required = false) String addInfo,
+                         Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        medilogService.bodyTemp(userDetails.getUsername(), date, time, temp, addInfo);
     }
 
     // http://localhost:8081/medilog/diarybloodpressure?userId=1
