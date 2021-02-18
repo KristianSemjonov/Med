@@ -55,20 +55,24 @@ public class MedilogService {
         }
     }
 
-    public void bloodPressure(int userId, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
+    public void bloodPressure(String username, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
+        Integer userId = medilogRepository.getUserId(username);
         medilogRepository.bloodPressure(userId, date, time, systolic, diastolic, pulse, addInfo);
     }
 
-    public void bloodSugar(int userId, LocalDate date, LocalTime time, BigDecimal bloodSugar, String addInfo) {
+    public void bloodSugar(String username, LocalDate date, LocalTime time, BigDecimal bloodSugar, String addInfo) {
+        Integer userId = medilogRepository.getUserId(username);
         medilogRepository.bloodSugar(userId, date, time, bloodSugar, addInfo);
     }
 
-    public void weight(int userId, LocalDate date, LocalTime time, BigDecimal weight, BigDecimal height, BigDecimal bmi, String addInfo) {
+    public void weight(String username, LocalDate date, LocalTime time, BigDecimal weight, BigDecimal height, BigDecimal bmi, String addInfo) {
         bmi = (weight.divide(height.multiply(height), RoundingMode.HALF_UP));
+        Integer userId = medilogRepository.getUserId(username);
         medilogRepository.weight(userId, date, time, weight, height, bmi, addInfo);
     }
 
-    public void bodyTemp(int userId, LocalDate date, LocalTime time, BigDecimal temp, String addInfo) {
+    public void bodyTemp(String username, LocalDate date, LocalTime time, BigDecimal temp, String addInfo) {
+        Integer userId = medilogRepository.getUserId(username);
         medilogRepository.bodyTemp(userId, date, time, temp, addInfo);
     }
 

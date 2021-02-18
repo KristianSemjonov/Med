@@ -120,4 +120,11 @@ public class MedilogRepository {
         paramMap.put("idCode", idCode);
         return jdbcTemplate.queryForObject(sql, paramMap, Integer.class) > 0;
     }
+
+    public Integer getUserId(String username) {
+        String sql = "SELECT user_id FROM users WHERE username = :username";
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("username", username);
+        return jdbcTemplate.queryForObject(sql, paramMap, Integer.class);
+    }
 }
