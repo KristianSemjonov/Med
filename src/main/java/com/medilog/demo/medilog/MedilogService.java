@@ -55,17 +55,6 @@ public class MedilogService {
         }
     }
 
-//    public String login(String username, String rawPassword) {
-//        String encodedPassword = "";
-//        if (medilogRepository.login(username, rawPassword)) {
-//            throw new MedException("Kontrollige salasõna või kasutajanime õigsust");
-//        } else {
-//            medilogRepository.login(username, passwordEncoder.matches(rawPassword, encodedPassword));
-//        }
-//    }
-
-
-
     public void bloodPressure(int userId, LocalDate date, LocalTime time, int systolic, int diastolic, int pulse, String addInfo) {
         medilogRepository.bloodPressure(userId, date, time, systolic, diastolic, pulse, addInfo);
     }
