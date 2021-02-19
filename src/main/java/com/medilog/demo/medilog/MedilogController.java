@@ -19,7 +19,7 @@ public class MedilogController {
     private MedilogService medilogService;
 
     // http://localhost:8081/medilog/createuser?firstName=Mari&lastName=Maasikas&idCode=11111111111&username=mammu&password=Mammu555
-    @PostMapping("createuser")
+    @PostMapping("createUser")
     public void createUser(@RequestParam("firstName") String firstName,
                            @RequestParam("lastName") String lastName,
                            @RequestParam("idCode") long idCode,
@@ -85,26 +85,35 @@ public class MedilogController {
 
     // http://localhost:8081/medilog/diarybloodpressure?userId=1
     @GetMapping("diarybloodpressure")
-    public List<BloodPressureDiary> diaryBloodPressure(@RequestParam ("userid") int userId) {
-        return medilogService.diaryBloodPressure(userId);
+    public List<BloodPressureDiary> diaryBloodPressure(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        {
+            return medilogService.diaryBloodPressure(userDetails.getUsername());
+        }
     }
 
     // http://localhost:8081/medilog/diarybloodsugar?userId=1
     @GetMapping("diarybloodsugar")
-    public List<BloodSugarDiary> diaryBloodSugar(@RequestParam ("userid") int userId) {
-        return medilogService.diaryBloodSugar(userId);
+    public List<BloodSugarDiary> diaryBloodSugar(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        {
+            return medilogService.diaryBloodSugar(userDetails.getUsername());
+        }
     }
 
     // http://localhost:8081/medilog/diaryweight?userId=1
     @GetMapping("diaryweight")
-    public List<WeightDiary> diaryWeight(@RequestParam ("userid") int userId) {
-        return medilogService.diaryWeight(userId);
+    public List<WeightDiary> diaryWeight(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return medilogService.diaryWeight(userDetails.getUsername());
     }
+
 
     // http://localhost:8081/medilog/diarytemperature?userId=1
     @GetMapping("diarytemperature")
-    public List<TemperatureDiary> diaryTemperature(@RequestParam ("userid") int userId) {
-        return medilogService.diaryTemperature(userId);
+    public List<TemperatureDiary> diaryTemperature(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return medilogService.diaryTemperature(userDetails.getUsername());
     }
 
 }

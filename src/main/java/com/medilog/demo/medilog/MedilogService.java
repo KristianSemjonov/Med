@@ -76,19 +76,23 @@ public class MedilogService {
         medilogRepository.bodyTemp(userId, date, time, temp, addInfo);
     }
 
-    public List diaryBloodPressure(int userId) {
+    public List diaryBloodPressure(String username) {
+        Integer userId = medilogRepository.getUserId(username);
         return medilogRepository.diaryBloodPressure(userId);
     }
 
-    public List diaryBloodSugar(int userId) {
+    public List diaryBloodSugar(String username) {
+        Integer userId = medilogRepository.getUserId(username);
         return medilogRepository.diaryBloodSugar(userId);
     }
 
-    public List diaryWeight(int userId) {
+    public List diaryWeight(String username) {
+        Integer userId = medilogRepository.getUserId(username);
         return medilogRepository.diaryWeight(userId);
     }
 
-    public List diaryTemperature(int userId) {
+    public List diaryTemperature(String username) {
+        Integer userId = medilogRepository.getUserId(username);
         return medilogRepository.diaryTemperature(userId);
     }
 }
